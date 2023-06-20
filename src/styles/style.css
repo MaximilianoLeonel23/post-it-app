@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-solid {
+  @apply bg-neutral-800 text-neutral-100 font-medium px-6 py-1.5 rounded w-fit;
+}
