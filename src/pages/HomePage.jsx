@@ -8,9 +8,8 @@ const HomePage = () => {
     <div className="flex justify-center py-20">
       <section className="flex flex-col items-center gap-y-8 text-center w-2/3 ">
         <h1 className="text-5xl text-neutral-800 font-medium leading-normal">
-          <span className="title-after">Organiza</span> tu vida con los mejores
-          post
-          <span className="bg-primary-green px-2 mx-2">its</span>
+          <span className="title-after">Organize</span> your routine with post
+          <span className="bg-primary-green px-2 mx-3">its</span> everywhere
         </h1>
         <p className="text-sm text-neutral-800 font-light">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non
@@ -22,7 +21,7 @@ const HomePage = () => {
 
         {!isAuthenticated && (
           <Link to="/register">
-            <button className="btn-solid">Regístrate</button>
+            <button className="btn-solid">Get started</button>
           </Link>
         )}
       </section>

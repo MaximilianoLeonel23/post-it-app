@@ -7,5 +7,35 @@ body {
 }
 
 .btn-solid {
-  @apply bg-neutral-800 text-neutral-100 font-medium px-6 py-1.5 rounded w-fit;
+  @apply bg-neutral-800 border border-neutral-800 text-neutral-100  font-medium px-5 py-1 rounded w-fit transition duration-300 hover:bg-transparent hover:border-neutral-800 hover:text-neutral-800;
+}
+
+.input-form {
+  @apply bg-transparent border border-neutral-400 rounded py-2 px-4 caret-primary-purple;
+}
+
+.postit-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.bg-red {
+  @apply bg-primary-red;
+}
+.bg-green {
+  @apply bg-primary-green;
+}
+.bg-orange {
+  @apply bg-primary-orange;
+}
+.bg-yellow {
+  @apply bg-primary-yellow;
+}
+.bg-purple {
+  @apply bg-primary-purple;
+}
+.bg-blue {
+  @apply bg-primary-blue;
+}
+.bg-neutral {
+  @apply bg-primary-neutral;
 }

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../contexts/authContext";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../components/Logo";
+
 import login from "../assets/images/login.png";
 const LoginPage = () => {
   const { signIn, isAuthenticated } = useAuth();
@@ -20,28 +20,47 @@ const LoginPage = () => {
   }, [isAuthenticated]);
 
   return (
-    <div className="flex bg-neutral-50">
-      <section className="w-2/3">
-        <header>
-          <div className="container mx-auto flex  py-4">
-            <Logo />
+    <div className="flex bg-neutral-100">
+      <section className="w-2/3 flex justify-center items-center">
+        <div className="flex flex-col gap-y-8 w-full px-32">
+          <div className="flex flex-col gap-y-2">
+            <h2 className="font-medium text-3xl text-neutral-800">
+              Log in to your account
+            </h2>
+            <p className="text-neutral-500 text-base">Welcome back!</p>
           </div>
-        </header>
-        <div>
-          <h2>Login</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex flex-col gap-y-2">
-              <label>Email</label>
-              <input type="email" {...register("email")} />
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-y-6 text-neutral-400"
+          >
+            <div className="flex flex-col gap-y-2 ">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                {...register("email")}
+                className="input-form"
+                id="email"
+              />
             </div>
             <div className="flex flex-col gap-y-2">
-              <label>Password</label>
-              <input type="password" {...register("password")} />
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                {...register("password")}
+                className="input-form"
+                id="password"
+              />
             </div>
             <div className="flex items-center gap-x-4">
-              <button className="btn-solid">Ingresar</button>
-              <p>
-                No tienes una cuenta? <Link to="/register">Registrate</Link>
+              <button className="btn-solid">Sign In</button>
+              <p className="text-neutral-600">
+                Don't have an account?{" "}
+                <Link
+                  to="/register"
+                  className="transition hover:text-primary-purple"
+                >
+                  Sign Up
+                </Link>
               </p>
             </div>
           </form>

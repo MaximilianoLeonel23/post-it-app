@@ -7,8 +7,8 @@ const Header = () => {
   const { isAuthenticated, logout } = useAuth();
 
   return (
-    <header className="bg-neutral-50">
-      <div className="container mx-auto flex justify-between items-center py-4">
+    <header>
+      <div className="flex justify-between items-center py-4 px-16">
         <Logo />
         {isAuthenticated ? (
           <>

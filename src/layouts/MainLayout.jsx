@@ -4,12 +4,12 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <>
+    <div className="h-screen bg-neutral-100">
       <Header />
-      <main className="bg-neutral-50">
+      <main className="py-12">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };
 
