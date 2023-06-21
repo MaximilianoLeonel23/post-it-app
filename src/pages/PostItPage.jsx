@@ -6,11 +6,10 @@ const PostItPage = () => {
 
   useEffect(() => {
     getPostits();
-    console.log(postits);
-  }, []);
+  }, [postits]);
 
   return (
-    <div className="px-16 grid grid-cols-4 gap-8">
+    <div className="px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       {postits &&
         postits.map((post, i) => {
           return <PostIt key={i} post={post} />;

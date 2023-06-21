@@ -11,11 +11,15 @@ body {
 }
 
 .input-form {
-  @apply bg-transparent border border-neutral-400 rounded py-2 px-4 caret-primary-purple;
+  @apply bg-transparent border border-neutral-500 rounded py-2 px-4 caret-neutral-500;
 }
 
 .postit-shadow {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.wrap-balance {
+  text-wrap: balance;
 }
 
 .bg-red {

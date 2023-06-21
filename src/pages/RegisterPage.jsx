@@ -30,7 +30,7 @@ const RegisterPage = () => {
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-y-6 text-neutral-400"
+            className="flex flex-col gap-y-6 text-neutral-500"
           >
             <div className="flex flex-col gap-y-2">
               <label>Full Name</label>

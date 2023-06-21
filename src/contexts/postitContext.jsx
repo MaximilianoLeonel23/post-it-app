@@ -36,9 +36,9 @@ export const PostItProvider = ({ children }) => {
     }
   };
 
-  const updatePostit = async (postit) => {
+  const updatePostit = async (id, postit) => {
     try {
-      await updatePostitRequest(postit);
+      await updatePostitRequest(id, postit);
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +47,6 @@ export const PostItProvider = ({ children }) => {
   const createPostit = async (postit) => {
     try {
       const res = await createPostitRequest(postit);
-      console.log(res.data);
     } catch (error) {
       console.log(error);
     }

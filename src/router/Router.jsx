@@ -6,6 +6,7 @@ import PostItFormPage from "../pages/PostItFormPage";
 import ProfilePage from "../pages/ProfilePage";
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
+import EditFormPage from "../pages/EditFormPage";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/postits/:id",
-        element: <PostItFormPage />,
+        element: <EditFormPage />,
       },
       {
         path: "/profile",

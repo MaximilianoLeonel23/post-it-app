@@ -1,29 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { usePostIt } from "../contexts/postitContext";
-import { useNavigate } from "react-router-dom";
 
-const PostItFormPage = () => {
-  const { register, handleSubmit } = useForm();
+const EditFormPage = () => {
+  const { register, setValue, handleSubmit } = useForm();
   const [tags, setTags] = useState([]);
-  const [tagInput, setTagInput] = useState();
-  const { createPostit } = usePostIt();
+  const [tagInput, setTagInput] = useState("");
+  const { getPostit, updatePostit } = usePostIt();
+  const params = useParams();
   const navigate = useNavigate();
+
   const handleTags = () => {
-    console.log(tagInput);
     setTags((prev) => [...prev, tagInput]);
   };
 
   const onSubmit = async (data) => {
-    const newData = { ...data, tags: tags };
-
+    const updatedData = { ...data, tags: tags };
     try {
-      const res = await createPostit(newData);
-      navigate("/postits");
+      if (params.id) {
+        const updatedPostit = await updatePostit(params.id, updatedData);
+        navigate("/postits");
+      }
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const loadPostit = async () => {
+      if (params.id) {
+        const postit = await getPostit(params.id);
+        setValue("title", postit.title);
+        setValue("content", postit.content);
+        setValue("color", postit.color);
+        setTags(postit.tags);
+      }
+    };
+    loadPostit();
+  }, []);
   return (
     <div className="px-16 flex gap-x-16 flex-row-reverse">
       <form
@@ -43,7 +58,7 @@ const PostItFormPage = () => {
           <div className="flex items-center gap-x-2 ">
             <input
               className="input-form"
-              values={tagInput}
+              value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
             />
             <span onClick={handleTags} className="cursor-pointer">
@@ -63,7 +78,7 @@ const PostItFormPage = () => {
               <input
                 type="radio"
                 name="color"
-                defaultValue="neutral"
+                value="neutral"
                 {...register("color")}
               />
             </div>
@@ -72,7 +87,7 @@ const PostItFormPage = () => {
               <input
                 type="radio"
                 name="color"
-                defaultValue="red"
+                value="red"
                 {...register("color")}
               />
             </div>
@@ -81,7 +96,7 @@ const PostItFormPage = () => {
               <input
                 type="radio"
                 name="color"
-                defaultValue="green"
+                value="green"
                 {...register("color")}
               />
             </div>
@@ -90,7 +105,7 @@ const PostItFormPage = () => {
               <input
                 type="radio"
                 name="color"
-                defaultValue="blue"
+                value="blue"
                 {...register("color")}
               />
             </div>
@@ -99,7 +114,7 @@ const PostItFormPage = () => {
               <input
                 type="radio"
                 name="color"
-                defaultValue="orange"
+                value="orange"
                 {...register("color")}
               />
             </div>
@@ -108,7 +123,7 @@ const PostItFormPage = () => {
               <input
                 type="radio"
                 name="color"
-                defaultValue="yellow"
+                value="yellow"
                 {...register("color")}
               />
             </div>
@@ -117,17 +132,17 @@ const PostItFormPage = () => {
               <input
                 type="radio"
                 name="color"
-                defaultValue="purple"
+                value="purple"
                 {...register("color")}
               />
             </div>
           </div>
         </div>
-        <button className="btn-solid">Add</button>
+        <button className="btn-solid">Save</button>
       </form>
       <div className="w-1/2 bg-white rounded drop-shadow-sm"></div>
     </div>
   );
 };
 
-export default PostItFormPage;
+export default EditFormPage;
