@@ -13,11 +13,10 @@ const TagsCount = () => {
 
     const tagsArray = Array.from(tags);
     setTags(tagsArray);
-    console.log(tagsArray);
   }, [postits]);
 
   return (
-    <p>
+    <p className="px-6 py-2 rounded bg-neutral-100 text-neutral-800">
       <span className="font-extrabold text-2xl pr-2">
         {tags ? tags.length : 0}
       </span>

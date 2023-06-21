@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { usePostIt } from "../contexts/postitContext";
+import Tag from "./Tag";
 
 const TagsPreview = () => {
   const { postits } = usePostIt();
@@ -13,22 +14,23 @@ const TagsPreview = () => {
 
     const tagsArray = Array.from(tags);
     setTags(tagsArray);
-    console.log(tagsArray);
   }, [postits]);
 
   return (
-    <div className="flex flex-wrap gap-x-2">
-      {tags &&
-        tags.map((tag, i) => {
-          return (
-            <p
-              key={i}
-              className="bg-neutral-100 text-neutral-500 text-sm rounded px-4 py-1"
-            >
-              {tag}
-            </p>
-          );
-        })}
+    <div className="flex flex-col gap-y-4">
+      <h4 className="text-lg font-medium text-neutral-800">Tags</h4>
+      {tags.length < 1 ? (
+        <div className="bg-neutral-100 rounded text-center py-4 text-neutral-500">
+          There is no tags now
+        </div>
+      ) : (
+        <div className="flex flex-wrap gap-2">
+          {tags &&
+            tags.map((tag, i) => {
+              return <Tag key={i} tag={tag} />;
+            })}
+        </div>
+      )}
     </div>
   );
 };
