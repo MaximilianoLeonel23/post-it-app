@@ -7,7 +7,7 @@ import Logo from "../components/Logo";
 
 const RegisterPage = () => {
   const { register, handleSubmit } = useForm();
-  const { signUp, isAuthenticated } = useAuth();
+  const { signUp, isAuthenticated, errors: registeredErrors } = useAuth();
 
   const navigate = useNavigate();
   const onSubmit = async (data) => {
@@ -17,6 +17,7 @@ const RegisterPage = () => {
   useEffect(() => {
     if (isAuthenticated) navigate("/");
   }, [isAuthenticated]);
+
   return (
     <div className="flex bg-neutral-100">
       <section className="w-1/2 flex justify-center items-center">
@@ -42,6 +43,7 @@ const RegisterPage = () => {
                 className="input-form"
               />
             </div>
+
             <div className="flex flex-col gap-y-2">
               <label className="text-sm">Email</label>
               <input
@@ -50,6 +52,7 @@ const RegisterPage = () => {
                 className="input-form"
               />
             </div>
+
             <div className="flex flex-col gap-y-2">
               <label className="text-sm">Password</label>
               <input
@@ -58,6 +61,7 @@ const RegisterPage = () => {
                 className="input-form"
               />
             </div>
+
             <div className="flex flex-col gap-y-2">
               <label className="text-sm">Username</label>
               <input
@@ -66,6 +70,15 @@ const RegisterPage = () => {
                 className="input-form"
               />
             </div>
+            {registeredErrors &&
+              registeredErrors.slice(0, 1).map((error, i) => (
+                <p
+                  key={i}
+                  className="text-primary-red text-sm border border-primary-red px-2 py-px"
+                >
+                  {error}
+                </p>
+              ))}
             <div className="flex items-center gap-x-4">
               <button className="btn-solid">Sign Up</button>
               <p className="text-neutral-600 text-sm">

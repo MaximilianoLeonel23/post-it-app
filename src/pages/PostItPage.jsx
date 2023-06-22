@@ -4,21 +4,24 @@ import PostIt from "../components/PostIt";
 import search from "../assets/icons/search.svg";
 import tagIcon from "../assets/icons/tag.svg";
 const PostItPage = () => {
-  const { postits, getPostits } = usePostIt();
+  const { postits, getPostits, loading } = usePostIt();
   const [tags, setTags] = useState([]);
   const [filteredPostits, setFilteredPostits] = useState([]);
   const [searched, setSearched] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
 
   useEffect(() => {
-    getPostits();
-    setFilteredPostits(postits);
-    const tags = postits.reduce((tagsSet, post) => {
-      post.tags.forEach((tag) => tagsSet.add(tag.toLowerCase()));
-      return tagsSet;
-    }, new Set());
-    const tagsArray = Array.from(tags);
-    setTags(tagsArray);
+    const getAllPostits = async () => {
+      await getPostits();
+      setFilteredPostits(postits);
+      const tags = postits.reduce((tagsSet, post) => {
+        post.tags.forEach((tag) => tagsSet.add(tag.toLowerCase()));
+        return tagsSet;
+      }, new Set());
+      const tagsArray = Array.from(tags);
+      setTags(tagsArray);
+    };
+    getAllPostits();
   }, []);
 
   const filterByPost = (e) => {
@@ -81,11 +84,16 @@ const PostItPage = () => {
           </select>
         </div>
       </div>
+
       <div className="px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {postits &&
+        {loading ? (
+          <p>cargando</p>
+        ) : (
+          postits &&
           filteredPostits.map((post, i) => {
             return <PostIt key={i} post={post} />;
-          })}
+          })
+        )}
       </div>
     </>
   );

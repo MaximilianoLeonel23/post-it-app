@@ -24,13 +24,11 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await registerRequest(data);
       if (res.status === 200) {
-        console.log("Registro exitoso");
         setUser(res.data);
         setIsAuthenticated(true);
       }
     } catch (error) {
-      console.log(error);
-      setErrors(error.response.data.message);
+      setErrors(error.response.data);
     }
   };
 
@@ -40,7 +38,7 @@ export const AuthProvider = ({ children }) => {
       setUser(res.data);
       setIsAuthenticated(true);
     } catch (error) {
-      console.log(error);
+      setErrors(error.response.data);
     }
   };
 

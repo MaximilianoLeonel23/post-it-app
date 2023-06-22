@@ -20,10 +20,17 @@ export const usePostIt = () => {
 
 export const PostItProvider = ({ children }) => {
   const [postits, setPostits] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getPostits = async () => {
-    const res = await getPostitsRequest();
-    setPostits(res.data);
+    try {
+      const res = await getPostitsRequest();
+      setPostits(res.data);
+      setLoading(false);
+    } catch (erorr) {
+      console.log(error);
+      setLoading(false);
+    }
   };
 
   const deletePostit = async (id) => {
@@ -69,6 +76,7 @@ export const PostItProvider = ({ children }) => {
         updatePostit,
         createPostit,
         getPostit,
+        loading,
       }}
     >
       {children}

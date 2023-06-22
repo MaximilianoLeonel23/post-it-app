@@ -7,7 +7,7 @@ import Logo from "../components/Logo";
 
 const LoginPage = () => {
   const { signIn, isAuthenticated } = useAuth();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors: loginErrors } = useForm();
   const onSubmit = async (data) => {
     await signIn(data);
   };
@@ -57,13 +57,22 @@ const LoginPage = () => {
                 id="password"
               />
             </div>
+            {loginErrors &&
+              loginErrors.slice(0, 1).map((error, i) => (
+                <p
+                  key={i}
+                  className="text-primary-red text-sm border border-primary-red px-2 py-px"
+                >
+                  {error}
+                </p>
+              ))}
             <div className="flex items-center gap-x-4">
               <button className="btn-solid">Sign In</button>
               <p className="text-neutral-600 text-sm">
-                Don't have an account?{" "}
+                Don't have an account?
                 <Link
                   to="/register"
-                  className="transition hover:text-primary-purple"
+                  className="transition hover:text-primary-purple px-1"
                 >
                   Sign Up
                 </Link>
