@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { usePostIt } from "../contexts/postitContext";
-
+import add from "../assets/icons/add.svg";
+import remove from "../assets/icons/remove.svg";
+import Tag from "../components/Tag";
 const EditFormPage = () => {
   const { register, setValue, handleSubmit } = useForm();
   const [tags, setTags] = useState([]);
@@ -11,8 +13,14 @@ const EditFormPage = () => {
   const params = useParams();
   const navigate = useNavigate();
 
-  const handleTags = () => {
+  const addTag = () => {
     setTags((prev) => [...prev, tagInput]);
+  };
+
+  const removeTag = () => {
+    if (tags.length > 0) {
+      setTags((prev) => prev.slice(0, -1));
+    }
   };
 
   const onSubmit = async (data) => {
@@ -43,8 +51,11 @@ const EditFormPage = () => {
     <div className="px-16 flex gap-x-16 flex-row-reverse">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-1/2 flex flex-col gap-y-4  text-neutral-800"
+        className="w-1/2 flex flex-col gap-y-4 py-4 text-neutral-800"
       >
+        <h3 className="text-2xl text-neutral-800 font-semibold">
+          Edit Post It
+        </h3>
         <div className="flex flex-col gap-y-2">
           <label>Title</label>
           <input className="input-form" {...register("title")} />
@@ -55,18 +66,21 @@ const EditFormPage = () => {
         </div>
         <div className="flex flex-col gap-y-2">
           <label>Tags</label>
-          <div className="flex items-center gap-x-2 ">
+          <div className="flex items-center gap-x-4 ">
             <input
               className="input-form"
               value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
             />
-            <span onClick={handleTags} className="cursor-pointer">
-              Add tag
+            <span onClick={addTag} className="cursor-pointer">
+              <img src={add} />
+            </span>
+            <span onClick={removeTag} className="cursor-pointer">
+              <img src={remove} />
             </span>
           </div>
           <div className="flex gap-x-2">
-            {tags && tags.map((tag, i) => <p key={i}>{tag}</p>)}
+            {tags && tags.map((tag, i) => <Tag key={i} tag={tag} />)}
           </div>
         </div>
 

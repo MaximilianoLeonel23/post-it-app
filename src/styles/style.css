@@ -43,3 +43,24 @@ body {
 .bg-neutral {
   @apply bg-primary-neutral;
 }
+
+.nav-link {
+  @apply inline-block relative cursor-pointer transition-colors duration-500;
+}
+
+.nav-link:hover {
+  @apply text-primary-purple;
+}
+
+.nav-link::after {
+  @apply bg-primary-purple absolute w-full h-1 top-full left-0;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 500ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

@@ -18,7 +18,7 @@ const FavouritePreview = () => {
         </div>
       ) : (
         <div className="flex flex-col gap-y-2">
-          {favourites.map((fav, i) => (
+          {favourites.slice(0, 5).map((fav, i) => (
             <Fav fav={fav} key={i} />
           ))}
         </div>

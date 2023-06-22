@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="h-screen bg-neutral-100">
+    <div className="min-h-screen bg-neutral-100">
       <Header />
       <main className="py-12">
         <Outlet />
