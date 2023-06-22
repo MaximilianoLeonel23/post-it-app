@@ -7,11 +7,15 @@ body {
 }
 
 .btn-solid {
-  @apply bg-neutral-800 border border-neutral-800 text-neutral-100  font-medium px-5 py-1 rounded w-fit transition duration-300 hover:bg-transparent hover:border-neutral-800 hover:text-neutral-800;
+  @apply bg-neutral-800 border border-neutral-800 text-neutral-100 text-sm font-medium px-5 py-1 rounded w-fit transition duration-300 hover:bg-transparent hover:border-neutral-800 hover:text-neutral-800;
+}
+
+.btn-ghost {
+  @apply bg-transparent border border-neutral-800 text-neutral-800 text-sm font-medium px-5 py-1 rounded w-fit transition duration-300 hover:bg-neutral-200 hover:border-neutral-800 hover:text-neutral-800;
 }
 
 .input-form {
-  @apply bg-transparent border border-neutral-500 rounded py-2 px-4 caret-neutral-500;
+  @apply bg-transparent border border-neutral-500 rounded py-1 px-4 caret-neutral-500;
 }
 
 .postit-shadow {

@@ -86,64 +86,71 @@ const EditFormPage = () => {
 
         <div className="flex flex-col gap-y-2 ">
           <label>Colors</label>
-          <div className="flex items-center gap-x-2">
-            <div className="flex items-center gap-x-2">
-              <label>Neutral</label>
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="flex  items-center gap-x-2 bg-primary-neutral px-3 py-1 cursor-pointer">
+              <label htmlFor="neutral">Neutral</label>
               <input
+                id="neutral"
                 type="radio"
                 name="color"
                 value="neutral"
                 {...register("color")}
               />
             </div>
-            <div className="flex items-center gap-x-2">
-              <label>Red</label>
+            <div className="flex items-center gap-x-2 bg-primary-red px-3 py-1 cursor-pointer">
+              <label htmlFor="red">Red</label>
               <input
+                id="red"
                 type="radio"
                 name="color"
                 value="red"
                 {...register("color")}
               />
             </div>
-            <div className="flex items-center gap-x-2">
-              <label>Green</label>
+            <div className="flex items-center gap-x-2 bg-primary-green px-3 py-1 cursor-pointer">
+              <label htmlFor="green">Green</label>
               <input
+                id="green"
                 type="radio"
                 name="color"
                 value="green"
                 {...register("color")}
               />
             </div>
-            <div className="flex items-center gap-x-2">
-              <label>blue</label>
+            <div className="flex items-center gap-x-2 bg-primary-blue px-3 py-1 cursor-pointer">
+              <label htmlFor="blue">blue</label>
               <input
+                id="blue"
                 type="radio"
                 name="color"
                 value="blue"
                 {...register("color")}
               />
             </div>
-            <div className="flex items-center gap-x-2">
-              <label>Orange</label>
+            <div className="flex items-center gap-x-2 bg-primary-orange px-3 py-1 cursor-pointer">
+              <label htmlFor="orange">Orange</label>
               <input
+                id="orange"
                 type="radio"
                 name="color"
                 value="orange"
                 {...register("color")}
               />
             </div>
-            <div className="flex items-center gap-x-2">
-              <label>Yellow</label>
+            <div className="flex items-center gap-x-2 bg-primary-yellow px-3 py-1 cursor-pointer">
+              <label htmlFor="yellow">Yellow</label>
               <input
+                id="yellow"
                 type="radio"
                 name="color"
                 value="yellow"
                 {...register("color")}
               />
             </div>
-            <div className="flex items-center gap-x-2">
-              <label>Purple</label>
+            <div className="flex items-center gap-x-2 bg-primary-purple px-3 py-1 cursor-pointer">
+              <label htmlFor="purple">Purple</label>
               <input
+                id="purple"
                 type="radio"
                 name="color"
                 value="purple"

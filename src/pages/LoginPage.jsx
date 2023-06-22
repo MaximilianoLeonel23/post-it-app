@@ -2,8 +2,9 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../contexts/authContext";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import login from "../assets/images/register.jpg";
+import Logo from "../components/Logo";
 
-import login from "../assets/images/login.png";
 const LoginPage = () => {
   const { signIn, isAuthenticated } = useAuth();
   const { register, handleSubmit } = useForm();
@@ -21,8 +22,9 @@ const LoginPage = () => {
 
   return (
     <div className="flex bg-neutral-100">
-      <section className="w-2/3 flex justify-center items-center">
+      <section className="w-1/2 flex justify-center items-center">
         <div className="flex flex-col gap-y-8 w-full px-32">
+          <Logo />
           <div className="flex flex-col gap-y-2">
             <h2 className="font-medium text-3xl text-neutral-800">
               Log in to your account
@@ -31,10 +33,12 @@ const LoginPage = () => {
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-y-6 text-neutral-500"
+            className="flex flex-col gap-y-4 text-neutral-500"
           >
             <div className="flex flex-col gap-y-2 ">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email" className="text-sm">
+                Email
+              </label>
               <input
                 type="email"
                 {...register("email")}
@@ -43,7 +47,9 @@ const LoginPage = () => {
               />
             </div>
             <div className="flex flex-col gap-y-2">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" className="text-sm">
+                Password
+              </label>
               <input
                 type="password"
                 {...register("password")}
@@ -53,7 +59,7 @@ const LoginPage = () => {
             </div>
             <div className="flex items-center gap-x-4">
               <button className="btn-solid">Sign In</button>
-              <p className="text-neutral-600">
+              <p className="text-neutral-600 text-sm">
                 Don't have an account?{" "}
                 <Link
                   to="/register"
@@ -66,7 +72,7 @@ const LoginPage = () => {
           </form>
         </div>
       </section>
-      <div className="w-1/3 h-screen p-4">
+      <div className="w-1/2 h-screen p-4">
         <img src={login} className="w-full h-full object-cover rounded" />
       </div>
     </div>

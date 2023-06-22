@@ -69,7 +69,7 @@ const PostItPage = () => {
           <select
             value={selectedTag}
             onChange={(e) => filterByTag(e)}
-            className="pl-10 py-1 border border-neutral-800 bg-neutral-800 text-white bg-transparent rounded"
+            className="pl-10 py-1 border border-neutral-800 bg-neutral-800 text-white rounded"
           >
             <option value="all">all tags</option>
             {tags.map((tag, i) => {
