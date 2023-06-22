@@ -17,7 +17,6 @@ const PostItPage = () => {
       post.tags.forEach((tag) => tagsSet.add(tag.toLowerCase()));
       return tagsSet;
     }, new Set());
-
     const tagsArray = Array.from(tags);
     setTags(tagsArray);
   }, []);

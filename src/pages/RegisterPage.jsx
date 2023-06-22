@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
 import { useEffect } from "react";
-import login from "../assets/images/register.jpg";
+import registerImage from "../assets/images/register.jpg";
 import Logo from "../components/Logo";
 
 const RegisterPage = () => {
@@ -82,7 +82,11 @@ const RegisterPage = () => {
         </div>
       </section>
       <div className="w-1/2 h-screen p-4">
-        <img src={login} className="w-full h-full object-cover rounded" />
+        <img
+          src={registerImage}
+          className="w-full h-full object-cover rounded"
+          alt="Register image"
+        />
       </div>
     </div>
   );

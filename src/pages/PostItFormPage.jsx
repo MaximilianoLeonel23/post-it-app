@@ -16,6 +16,7 @@ const PostItFormPage = () => {
 
   const addTag = () => {
     setTags((prev) => [...prev, tagInput]);
+    setTagInput("");
   };
 
   const removeTag = () => {
@@ -33,14 +34,6 @@ const PostItFormPage = () => {
     } catch (error) {
       console.log(error);
     }
-  };
-
-  const falsePostit = {
-    title: "soy un postit",
-    content: "contenido falso",
-    favourite: false,
-    color: "blue",
-    tags: [],
   };
 
   return (
@@ -173,10 +166,6 @@ const PostItFormPage = () => {
           className="object-cover w-full h-full rounded-xl"
         />
       </div>
-      {/* <img
-          src={createPostitImage}
-          className="object-cover w-full h-full rounded-xl"
-        /> */}
     </div>
   );
 };

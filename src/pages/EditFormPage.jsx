@@ -5,6 +5,7 @@ import { usePostIt } from "../contexts/postitContext";
 import add from "../assets/icons/add.svg";
 import remove from "../assets/icons/remove.svg";
 import Tag from "../components/Tag";
+import editPostitImage from "../assets/images/edit-postit.jpg";
 const EditFormPage = () => {
   const { register, setValue, handleSubmit } = useForm();
   const [tags, setTags] = useState([]);
@@ -15,6 +16,7 @@ const EditFormPage = () => {
 
   const addTag = () => {
     setTags((prev) => [...prev, tagInput]);
+    setTagInput("");
   };
 
   const removeTag = () => {
@@ -161,7 +163,12 @@ const EditFormPage = () => {
         </div>
         <button className="btn-solid">Save</button>
       </form>
-      <div className="w-1/2 bg-white rounded drop-shadow-sm"></div>
+      <div className="w-1/2 h-[30rem]">
+        <img
+          src={editPostitImage}
+          className="object-cover w-full h-full rounded-xl"
+        />
+      </div>
     </div>
   );
 };
