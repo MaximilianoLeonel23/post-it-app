@@ -5,9 +5,9 @@ import DeleteBtn from "./DeleteBtn";
 
 const PostIt = ({ post }) => {
   return (
-    <article className="postit-shadow transition duration-700 hover:-rotate-3 min-w-[15rem]">
-      <div className={`min-h-[1.5rem] bg-${post.color} brightness-90`}></div>
-      <div className={`bg-${post.color}  min-h-[15rem] h-60`}>
+    <article className="postit-shadow transition duration-700 hover:-rotate-3 w-[17rem]">
+      <div className={`h-[2rem] bg-${post.color} brightness-90`}></div>
+      <div className={`bg-${post.color} h-[15rem]`}>
         <div className="flex flex-col justify-between gap-y-2 h-full py-4 px-6">
           <div className="flex flex-col gap-y-2">
             <h4 className="font-bold text-neutral-800 text-base line-clamp-1">

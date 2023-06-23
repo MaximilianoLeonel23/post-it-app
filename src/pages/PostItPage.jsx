@@ -56,7 +56,7 @@ const PostItPage = () => {
   };
   return (
     <>
-      <div className="px-16 py-4 flex items-center gap-x-4">
+      <div className="container py-4 flex flex-col sm:flex-row justify-center items-center gap-4">
         <div className="relative flex items-center">
           <img src={search} className="absolute ml-3" />
           <input
@@ -85,7 +85,8 @@ const PostItPage = () => {
         </div>
       </div>
 
-      <div className="px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {/* <div className="px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"> */}
+      <div className="flex flex-wrap justify-center gap-8">
         {loading ? (
           <p>cargando</p>
         ) : (

@@ -37,10 +37,16 @@ const PostItFormPage = () => {
   };
 
   return (
-    <div className="px-16 flex gap-x-16 flex-row-reverse">
+    <div className="container flex flex-col sm:flex-row gap-y-4 gap-x-16">
+      <div className="w-full sm:block sm:w-1/2 h-[10rem] sm:h-auto">
+        <img
+          src={createPostitImage}
+          className="object-cover w-full h-full rounded-xl"
+        />
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-1/2 flex flex-col gap-y-4 py-4 text-neutral-800"
+        className="w-full sm:w-1/2 flex flex-col gap-y-4 py-4 text-neutral-800"
       >
         <h3 className="text-2xl text-neutral-800 font-semibold">New Post It</h3>
         <div className="flex flex-col gap-y-2">
@@ -64,21 +70,23 @@ const PostItFormPage = () => {
           <label htmlFor="tags" className="text-sm">
             Tags
           </label>
-          <div className="flex items-center gap-x-4">
+          <div className="flex flex-wrap items-center gap-4">
             <input
               id="tags"
               className="input-form"
-              values={tagInput}
+              value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
             />
-            <span onClick={addTag} className="cursor-pointer">
-              <img src={add} />
-            </span>
-            <span onClick={removeTag} className="cursor-pointer">
-              <img src={remove} />
-            </span>
+            <div className="flex items-center gap-x-4">
+              <span onClick={addTag} className="cursor-pointer">
+                <img src={add} />
+              </span>
+              <span onClick={removeTag} className="cursor-pointer">
+                <img src={remove} />
+              </span>
+            </div>
           </div>
-          <div className="flex gap-x-2">
+          <div className="flex py-2 gap-2">
             {tags && tags.map((tag, i) => <Tag key={i} tag={tag} />)}
           </div>
         </div>
@@ -158,14 +166,10 @@ const PostItFormPage = () => {
             </div>
           </div>
         </div>
-        <button className="btn-solid">Create</button>
+        <div className="flex py-4">
+          <button className="btn-solid mx-auto sm:mx-0 w-full">Create</button>
+        </div>
       </form>
-      <div className="w-1/2 h-[30rem]">
-        <img
-          src={createPostitImage}
-          className="object-cover w-full h-full rounded-xl"
-        />
-      </div>
     </div>
   );
 };
