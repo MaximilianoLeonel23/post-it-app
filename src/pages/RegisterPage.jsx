@@ -19,15 +19,15 @@ const RegisterPage = () => {
   }, [isAuthenticated]);
 
   return (
-    <div className="flex bg-neutral-100">
-      <section className="w-1/2 flex justify-center items-center">
-        <div className="flex flex-col gap-y-8 w-full px-32">
+    <div className="flex sm:flex-row flex-col-reverse gap-y-4 bg-neutral-100 pb-24 lg:pb-0">
+      <section className="w-full sm:w-1/2 flex justify-center items-center">
+        <div className="container flex flex-col gap-y-8 w-full">
           <Logo />
           <div className="flex flex-col gap-y-2">
-            <h2 className="font-medium text-3xl text-neutral-800">
+            <h2 className="font-medium text-2xl sm:text-3xl text-neutral-800">
               Get started
             </h2>
-            <p className="text-neutral-500 text-base">
+            <p className="text-neutral-500 text-sm sm:text-base">
               Create your account now
             </p>
           </div>
@@ -79,7 +79,7 @@ const RegisterPage = () => {
                   {error}
                 </p>
               ))}
-            <div className="flex items-center gap-x-4">
+            <div className="flex items-center flex-wrap gap-4">
               <button className="btn-solid">Sign Up</button>
               <p className="text-neutral-600 text-sm">
                 Have an account?{" "}
@@ -94,7 +94,7 @@ const RegisterPage = () => {
           </form>
         </div>
       </section>
-      <div className="w-1/2 h-screen p-4">
+      <div className="w-full sm:w-1/2 h-[10rem] sm:h-screen p-4">
         <img
           src={registerImage}
           className="w-full h-full object-cover rounded"

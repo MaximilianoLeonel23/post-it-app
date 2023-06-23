@@ -6,10 +6,10 @@ const Information = () => {
 
   return (
     <div className="flex flex-col gap-y-4">
-      <h4 className="text-lg font-medium text-neutral-800">
+      <h4 className="text-base sm:text-lg font-medium text-neutral-800">
         Personal information
       </h4>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm sm:text-base">
         <div>
           <p className="text-neutral-500">Full Name</p>
           <p className="text-neutral-800">{user?.fullname}</p>

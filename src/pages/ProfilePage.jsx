@@ -6,8 +6,8 @@ import ProfileImage from "../components/ProfileImage";
 import Statistics from "../components/Statistics";
 const ProfilePage = () => {
   return (
-    <div className="px-16">
-      <section className="grid grid-cols-2 gap-16 bg-white rounded-xl p-8">
+    <div className="container">
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-16 bg-white rounded-xl p-6 sm:p-8">
         <div className="flex flex-col gap-y-8">
           <ProfileImage />
           <Statistics />

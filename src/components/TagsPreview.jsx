@@ -18,9 +18,11 @@ const TagsPreview = () => {
 
   return (
     <div className="flex flex-col gap-y-4">
-      <h4 className="text-lg font-medium text-neutral-800">Tags</h4>
+      <h4 className="text-base sm:text-lg font-medium text-neutral-800">
+        Tags
+      </h4>
       {tags.length < 1 ? (
-        <div className="bg-neutral-100 rounded text-center py-4 text-neutral-500">
+        <div className="bg-neutral-100 rounded text-center py-2 sm:py-4 text-neutral-500">
           There is no tags now
         </div>
       ) : (
